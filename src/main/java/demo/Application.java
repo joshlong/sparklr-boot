@@ -25,7 +25,7 @@ import javax.persistence.Id;
 
 
 /***
- * Demononstrates an OAuth-secured REST API (accessible under {@literal /customers}).
+ * Demonstrates an OAuth-secured REST API (accessible under {@literal /customers}).
  *  
  * Get an OAuth token from the service: 
  *  {@literal curl -X POST -vu ios-crm:secret http://localhost:8080/oauth/token -H "Accept: application/json" -d "password=password&username=user&grant_type=password&scope=read"}
