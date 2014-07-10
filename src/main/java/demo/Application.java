@@ -16,8 +16,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configurers.OAuth2ResourceServerConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -63,7 +63,7 @@ public class Application {
         }
 
         @Override
-        public void configure(OAuth2ResourceServerConfigurer resources) throws Exception {
+        public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
             resources.resourceId(CRM_RESOURCE_ID);
         }
 
@@ -77,7 +77,7 @@ public class Application {
         private AuthenticationManager authenticationManager;
 
         @Override
-        public void configure(OAuth2AuthorizationServerConfigurer oauthServer) throws Exception {
+        public void configure(AuthorizationServerEndpointsConfigurer oauthServer) throws Exception {
             oauthServer.authenticationManager(authenticationManager);
         }
 
